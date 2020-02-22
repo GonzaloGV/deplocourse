@@ -6,10 +6,10 @@ Cuando ingresamos el DNS en el Browser y obtenemos una ip del isp podemos enviar
 
 Las request tienen VERBO que determina la operacion del request:
 
-GET: pide algun resource al server. \
-POST: Le pedimos al servidor que acepte algo que enviamos.
-PUT: Update de algo en el servidor. \
-DELETE: Elimina informacion o algun recurso en el servidor.
+* GET: pide algun resource al server. \
+* POST: Le pedimos al servidor que acepte algo que enviamos.
+* PUT: Update de algo en el servidor. \
+* DELETE: Elimina informacion o algun recurso en el servidor.
 
 
 ### Response
