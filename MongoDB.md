@@ -1,7 +1,7 @@
 # MongoDB
 
-* MongoDB es una <b />base de datos basada en codumnetos</b>
-, esto quiere decir que trabaja con una coleccion de documentos.
+* MongoDB es una <b />base de datos basada en documentos</b>
+, esto quiere decir que trabaja con  colecciones de documentos.
 
 ## MongoDB server:
 * Es el servidor donde se alojan y sirven las distintas db de mongo.
@@ -50,6 +50,32 @@ Cada coleccion tienen que estar relacionados o tener el mismo proposito!
 
  ### Eliminar una db:
  * db.dropDatabase() eliminar la db actual.
+
+ ## Como crear y eliminar colecciones en MongoDB?
+
+### Crear una collecion:
+ * para crear una db hay que usar el comando db.createCollection(name, Options):
+   * name: Nombre de la coleccion.
+   * Options (Opcional): Un documento que sirve para especificar configuraciones de la coleccion.
+
+Sin embargo, la creación de colleciones se puede hacer directamente con la inserción de un documento con el comando db.collectionName.insert(documento).
+
+### Eliminar una colecion:
+* Para eliminar una coleccion tenemos que usar el comando
+db.COLLECTION_NAME.drop()
+
+## Como hacer Queries a una coleccion?
+### Escribir una querie:
+* para hacer queries se usa el metodo find(): \
+  * db.COLLECTION_NAME.find() \
+  Sin embargo esto nos devuelve los documentos en un formato poco practico para la lectura.
+  * db.COLLECTION_NAME.find().pretty(). \
+  Mejora mucho el formato.
+
+En los parametros del metodo find podemos establecer condiciones para filtrar en la busqueda, por ejemplo: \
+db.usuarios.find({"name": "Romina"})
+
+
  
 
 
