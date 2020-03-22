@@ -75,6 +75,58 @@ db.COLLECTION_NAME.drop()
 En los parametros del metodo find podemos establecer condiciones para filtrar en la busqueda, por ejemplo: \
 db.usuarios.find({"name": "Romina"})
 
+### Dentro del filter podemos pasar filtros:
+Los filtros van a determinar ciertas operaciones para filtrar documentros:
+* Igualdad:
+  * db.COLECTION_NAME.find({key:valor para filtrar})
+* Menos que:
+  * db.COLECTION_NAME.find({key:{$lt:valor}})
+* Menos o igual que:
+  * db.COLECTION_NAME.find({key:{$lte:valor}})
+* Mayor que:
+  * db.COLECTION_NAME.find({key:{$gt:valor}})
+* Mayor o igual que:
+  * db.COLECTION_NAME.find({key:{$gte:valor}})
+* Distinto que:
+  * db.COLECTION_NAME.find({key:{$ne:valor}})
+* AND:
+  * db.COLECTION_NAME.find({$and:[{key:{$lte:value}}, key:{$gte:value}]})
+* OR:
+  * db.COLECTION_NAME.find({$or:[{key:{$lte:value}}, key:{$gte:value}]})
+
+### Proyecciones:
+Al haccer una query, las proyecciones nos permiten traer solo los campos que necesitamos:
+* Esto se hace con un parametro dentro del metodo find() que recibe un array de booleanos donde podemos determinar que campos queremos recibir.
+* Ejemplo:
+  * db.COLECTION_NAME.find({query}, {"key_1":1, _id:0})
+
+### Limitar cantidad de Documentos en el resultado de la query:
+Con el metodo limit() encadenado al metodo find, podemos limitar la cantidad de documentos en la respuesta:
+* Sintaxis:
+  * db.COLECTION_NAME.find().limit(NUMERO)
+
+### Ordenar la respuesta:
+Con el metodo sort() encadenado al metodo find podemos ordenar los documentos en base a algun campo:
+* Sintaxis:
+  * db.COLECTION_NAME.find().sort({KEY:1})
+Si pasamos 1 se van a ordenar de forma ascendente.
+Si pasamos -1 se va a ordenar de forma descendiente.
+
+## Update de Documentos en MongoDB:
+Los metodos mas utilizados para hacer updates en una db de mongo son update() y save().
+### update():
+* El metodo update cambia un valor en documentos existentes:
+  * db.COLECTIOn_NAME.update(CRITERIO_DE_SELECION, UPDATED_DATA)
+
+## Eliminar un Documento:
+### remove():
+* El metodo remove acepta dos parametros:
+  * deletion criteria - (opcional) regla para determinar que elementos se van a eleminar.
+  * justOne -(optional) Si es true, solo se va a eliminar un documento.
+* Sintaxis:
+  * db.COLECTION_NAME.remove(deletion_criteria)
+
+
 
  
 
