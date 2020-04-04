@@ -16,7 +16,7 @@ app = Flask(__name__)
 api = Api(app)
 
 client = MongoClient("mongodb://db:27017")
-db = client.SetencesDatabase
+db = client.SentencesDatabase
 users = db["Users"]
 
 def verify_pw(username, password):
@@ -132,7 +132,7 @@ class Retrieve(Resource):
             sentence = users.find({
                 "Username": username,
             })[0]["Sentence"]
-            
+
             response = {
                 "status": 200,
                 "msg": sentence
